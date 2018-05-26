@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>The Lost Maze - Map Editor</title>
+    <!-- Standard -->
+    <meta name="author" content="Yannick Comte" />
+    <meta name="keywords" content="The Lost Maze, Map Editor" />
+    <meta name="copyright" content="Demonixis Games" />
+    <meta name="description" content="The Lost Maze Map Editor" />
+    <link rel="stylesheet" href="assets/css/main.css"/>
+    <link rel="icon" type="image/png" href="favicon.ico" />
+</head>
+<body>
+<div id="main" role="main">
+    <div class="tilepanel right">
+        <div class="tilepanelItem" id="tilePaletEditor">
+            <div class="paletteColorsSelector" id="tilePaletList">
+                <div id="labelSelect">
+                    <div class="title">
+                        <span>Layers</span>
+                        <select id="layerSelect">
+                            <option value="Grounds">Grounds</option>
+                            <option value="Structure">Structure</option>
+                            <option value="Items">Items</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="tilePaletListContainer"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="tilepanel left">
+        <div class="tilepanelItem">
+            <div id="LevelPropertyEditor">
+                <div class="tilepanelParams">
+                    <h4 class="menuTitle">Properties</h4>
+                    <div>
+                        <div class="param">
+                            <span>Id </span><input type="text" id="mapId" value="Level_1" name="mapId"/>
+                        </div>
+                        <div class="param">
+                            <span>Name </span><input type="text" id="mapName" value="Level_1" name="mapName"/>
+                        </div>
+                    </div>
+                    <h4 class="menuTitle">End Conditions</h4>
+                    <div>
+                        <div class="param">
+                            <span>End Point </span><input type="checkbox" id="endCondition1" checked="checked" />
+                        </div>
+                        <div class="param">
+                            <span>Time</span><input type="number" min="0" step="1" id="endCondition2" value="0" />
+                        </div>
+                        <div class="param">
+                            <span>Crystals</span><input type="number" min="0" step="1" id="endCondition3" value="0" />
+                        </div>
+                        <div class="param">
+                            <span>Required items</span>
+                            <textarea id="endCondition4"></textarea>
+                        </div>
+                    </div>
+                    <h4 class="menuTitle">Map</h4>
+                    <div>
+                        <div class="param">
+                            <span>Width </span><input type="number" id="mapWidth" rel="width" value="24" name="mapWidth"/>
+                        </div>
+                        <div class="param">
+                            <span>Height </span><input type="number" id="mapHeight" rel="height" value="1" name="mapHeight"/>
+                        </div>
+                        <div class="param">
+                            <span>Depth </span><input type="number" id="mapDepth" rel="depth" value="16" name="mapDepth"/>
+                        </div>
+                    </div>
+                    <h4 class="menuTitle">Tile</h4>
+                    <div>
+                        <div class="param">
+                            <span>Width </span><input type="number" min="5" max="65" id="tileWidth" rel="width" value="45" name="tileWidth"/>
+                        </div>
+                        <div class="param">
+                            <span>Height </span><input type="number" min="5" max="65" id="tileHeight" rel="height" value="45" name="tileHeight"/>
+                        </div>
+                        <div class="actionButton">
+                            <button id="btnRedraw">Redraw</button>
+                        </div>
+                    </div>
+                    <h4 class="menuTitle">Actions</h4>
+                    <div class="actionButton">
+                        <button id="btnCreateLevel">Create</button>
+                        <button id="btnOpenLevel">Open</button>
+                        <button id="btnExportLevel">Export</button>
+                        <button id="btnClearLevel">Clear</button>
+                        <div class="checkbox-container">
+                            <span>Show all layers</span><input type="checkbox" id="showLayers" checked="checked" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+             <div class="tilepanelItem" id="actionModeEditor">
+                <h2 class="menuTitle">Modes</h2>
+                <div class="actionButton">
+                    <button id="btnToggleMode">Toggle</button>
+                    <span id="modeStatus">Draw</span>
+                </div>
+            </div>
+            <div class="tilepanelItem" id="tilePropertyEditor" style="display:none">
+                <div class="tilepanelParams">
+                    <h4>Properties</h4>
+                    <div class="param">
+                        <span>Item ID </span><input type="text" rel="x" id="tilePropertyEditor_ItemID" value="0" name="pTileItemID"/>
+                    </div>
+                    <div class="param">
+                        <span>Ref ID </span><input type="text" rel="x" id="tilePropertyEditor_RefID" value="0" name="pTileRefID"/>
+                    </div>
+                    
+                    <h4>Rotation</h4>
+                    <div class="param">
+                        <span>X </span><input type="text" rel="x" id="tilePropertyEditor_RX" value="0" name="pTileRX"/>
+                    </div>
+                    <div class="param">
+                        <span>Y </span><input type="text" rel="y" id="tilePropertyEditor_RY" value="0" name="pTileRY"/>
+                    </div>
+                    <div class="param">
+                        <span>Z </span><input type="text" rel="z" id="tilePropertyEditor_RZ" value="0" name="pTileRZ"/>
+                    </div>
+                    <h4>Scaling</h4>
+                    <div class="param">
+                        <span>Width </span><input type="text" rel="width" id="tilePropertyEditor_Width" value="1" name="pTileWidth"/>
+                    </div>
+                    <div class="param">
+                        <span>Height </span><input type="text" rel="height" id="tilePropertyEditor_Height" value="1" name="pTileHeight"/>
+                    </div>
+                    <div class="param">
+                        <span>Depth </span><input type="text" rel="depth" id="tilePropertyEditor_Depth" value="1" name="pTileDepth"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="mapEditorLayers"></div>
+    
+    <div class="clear"></div>
+    
+    <input type="file" id="mapFile" />
+</div>
+<script src="assets/js/FileSaver.js"></script>
+<script src="assets/js/CanvasToBlob.js"></script>
+<script src="assets/js/uQuery.js"></script>
+<script src="assets/js/TilePanelEditor.js"></script>
+<script src="assets/js/LevelPropertyEditor.js"></script>
+<script src="assets/js/TilePropertyEditor.js"></script>
+<script src="assets/js/TilePalet.js"></script>
+<script src="assets/js/OpenFileDialog.js"></script>
+<script src="assets/js/MazeEditor.js"></script>
+<script>
+    window.onload = function (e) {
+        initialize();
+    };
+</script>
+</body>

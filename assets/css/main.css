@@ -1,0 +1,276 @@
+.legend {
+    font-style: italic;
+}
+
+.legend img {
+    vertical-align: middle;
+}
+
+.logo {
+    width: 32px;
+}
+
+.center {
+    text-align: center;
+}
+
+.no-margin {
+    margin: 0;
+}
+
+.no-border {
+    border: 0;
+}
+
+.clear {
+    clear: both;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+.inline {
+    display: inline-block;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: #D6E4FE;
+}
+
+#main {
+    width: 100%;
+    height: 100%;
+}
+
+/* Tilemap Editor */
+#editorContainer {
+    width: 100%;
+    height: 100%;
+    min-width: 1024px;
+    min-height: 650px;
+    margin: auto;
+}
+
+.tilepanel {
+    position: relative;
+    width: 180px;
+    height: inherit;
+    margin: 0;
+    padding: 0;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -o-user-select: none;
+    -moz-user-select: -moz-none;
+    user-select: none;
+}
+
+.tilepanelItem {
+    border: 1px solid #ccc;
+    margin: 0 0 0 0;
+    background: #fff;
+}
+
+.tilepanelItem + .tilepanelItem {
+    border-top: 0;
+}
+
+.tilepanelParams h4, .tilepanelItem h2  {
+    margin: 0 0 5px 0;
+    padding: 5px 15px 5px 10px;
+    background: #555;
+    font-weight: normal;
+    font-size: 14px;
+    color: #FFF;
+}
+
+.tilepanelParams .param {
+    margin: 0 0 5px 10px;
+}
+
+.tilepanelParams span {
+    display: block;
+    float: left;
+    width: 75px;
+    font-size: 14px;
+    padding: 2px 0;
+}
+
+.tilepanelParams input[type=text], .tilepanelParams input[type=number] {
+    width: 75px;
+    margin: 0;
+}
+
+.tilepanelParams textarea {
+    width: 75px;
+    height: 50px;
+}
+
+.tilepanelParams.oneItem {
+    text-align: right;
+    padding: 0 5px 5px 0;
+}
+
+.actionButton button {
+    margin: 5px 0 10px 5px;
+    padding: 5px 5px;
+    text-align: center;
+}
+
+#labelSelect .title {
+    background: #666;
+    padding: 5px 0;
+    color: #eee;
+    background-color: #4B4B4B;
+    margin: 0 0 6px 0;
+}
+
+#labelSelect span {
+    display: inline-block;
+    padding: 0px 10px 0px 5px;
+}
+
+#labelSelect select {
+    padding: 0px 35px;
+}
+
+#modeStatus {
+    display: inline-block;
+    margin: 0 0 0 5px;
+    font-weight: bold;
+    color: #333;
+    font-size: 14px;
+}
+
+#modeStatus:first-letter {
+    text-transform: uppercase;;
+}
+
+.editor {
+    position: absolute;
+    top: 0;
+    left: 180px;
+    height: 480px;
+    width: 640px;
+    margin: 0;
+}
+
+.tile {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    border: 1px solid #888;
+    text-align: center;
+    cursor: pointer;
+}
+
+.tile:hover {
+    background-color: rgba(255, 255, 255, 0.3) !important;
+    border: 1px solid #333 !important;
+    z-index: 999999;
+    transform: translateX(-0.5px) translateY(-0.5px);
+}
+
+.tile.selected {
+    background-color: rgba(255, 255, 255, 0.3) !important;
+    border: 5px solid #aa0 !important;
+    border-radius: 5px;
+    z-index: 999999;
+    transform: translateX(-5px) translateY(-5px);
+}
+
+.tile span {
+    position: absolute;
+    top: 60%;
+    left: 65%;
+    background: #333;
+    border: 1px solid #AAA;
+    border-radius: 50%;
+    padding: 2px;
+    text-shadow: black 0.1em 0.1em 0.2em;
+    color: white;
+    font-size: 10px;
+}
+
+.tilepanel.right {
+    width: 220px;
+}
+
+.paletteColorsSelector {
+    padding: 0 0 0 0px;
+}
+
+.paletteColorsSelector ul {
+    margin: 0;
+    padding: 0;
+}
+
+.paletteColorsSelector li {
+    list-style: none;
+    margin: 0 0 2px 0;
+    cursor: pointer;
+}
+
+.paletteColorsSelector .paletteItem:after {
+    clear: both;
+    content: "";
+    display: table;
+}
+
+.paletteColorsSelector .paletteItem:hover, .paletteColorsSelector .paletteItem.selected {
+    background-color: #e0e0e0;
+}
+
+.paletteColorsSelector span {
+    display: block;
+    float: left;
+    line-height: 24px;
+}
+
+.paletteColorsSelector input[type=text] {
+    width: 30px;
+}
+
+.paletteColorsSelector .colorActionItem {
+    padding: 5px;
+    color: #333;
+}
+
+.colorItem {
+    display: block;
+    width: 30px;
+    height: 30px;
+    border: 1px solid #CCC;
+    float: left;
+    margin: 0 5px;
+    background: #000;
+}
+
+.colorItem img {
+    width: 100%;
+    height: 100%;
+}
+
+.checkbox-container {
+    padding: 0 10px 0 10px;
+}
+
+.checkbox-container span {
+    float: none;
+    display: inline-block;
+    width: auto;
+    margin: 0 15px 0 0;
+}
+
+#mapFile {
+    display: none;
+}
